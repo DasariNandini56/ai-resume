@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My AI Resume</title>
+    <title>Nandini | AI Resume Portfolio</title>
 
     <style>
         * {
@@ -37,6 +36,10 @@
             margin-left: 20px;
         }
 
+        nav a:hover {
+            color: #64eaff;
+        }
+
         section {
             padding: 65px 8%;
         }
@@ -50,7 +53,7 @@
         }
 
         .hero-content {
-            max-width: 600px;
+            max-width: 650px;
         }
 
         .hero h1 {
@@ -65,6 +68,28 @@
         p {
             color: #aab7d4;
             line-height: 1.8;
+        }
+
+        /* Contact information below the name */
+        .hero-contact {
+            margin: 20px 0;
+        }
+
+        .hero-contact p {
+            margin: 8px 0;
+            font-size: 15px;
+        }
+
+        .hero-contact a {
+            color: #64eaff;
+            text-decoration: none;
+            transition: 0.3s;
+            overflow-wrap: anywhere;
+        }
+
+        .hero-contact a:hover {
+            color: white;
+            text-shadow: 0 0 10px #64eaff;
         }
 
         button {
@@ -135,8 +160,13 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
         }
 
         @media (max-width: 650px) {
@@ -169,6 +199,7 @@
 
 <body>
 
+    <!-- Navigation -->
     <nav>
         <h2>NANDINI.</h2>
 
@@ -176,18 +207,40 @@
             <a href="#about">About</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
         </div>
     </nav>
 
+    <!-- Home / Hero Section -->
     <section class="hero">
 
         <div class="hero-content">
+
             <p class="highlight">SOFTWARE ENGINEER · INDIA</p>
 
             <h1>
                 Hi, I'm Nandini.<br>
                 I build <span class="highlight">software.</span>
             </h1>
+
+            <!-- Mobile number and email below the name -->
+            <div class="hero-contact">
+
+                <p>
+                    📱
+                    <a href="tel:+917337316296">
+                        +91 7337316296
+                    </a>
+                </p>
+
+                <p>
+                    📧
+                    <a href="mailto:dasarinandini56@gmail.com">
+                        dasarinandini56@gmail.com
+                    </a>
+                </p>
+
+            </div>
 
             <p>
                 I'm a Product Engineer at TCS, working with
@@ -202,13 +255,16 @@
             <button onclick="stopIntro()">
                 ■ Stop voice
             </button>
+
         </div>
 
         <div class="avatar" id="avatar"></div>
 
     </section>
 
+    <!-- About Section -->
     <section id="about">
+
         <h2>About Me</h2>
 
         <div class="card">
@@ -219,13 +275,18 @@
                 agent for enterprise IT automation.
             </p>
         </div>
+
     </section>
 
+    <!-- Experience Section -->
     <section id="experience">
+
         <h2>Experience</h2>
 
         <div class="card">
+
             <h3>Product Engineer — TCS</h3>
+
             <p>April 2025 – Present | DWS Product Team</p>
 
             <p>
@@ -234,32 +295,43 @@
                 • Debug defects and work with APIs, JSON, and PowerShell.<br>
                 • Collaborate with teammates on requirements and fixes.
             </p>
+
         </div>
+
     </section>
 
+    <!-- Projects Section -->
     <section id="projects">
+
         <h2>Projects</h2>
 
         <div class="card">
+
             <h3>Flood Prognostication Using Machine Learning</h3>
 
             <p>
                 Final-year academic project comparing machine learning
                 approaches for flood prediction using relevant data.
             </p>
+
         </div>
 
         <div class="card">
+
             <h3>Data Analytics Projects</h3>
 
             <p>
                 Practice projects involving operational metrics,
                 hiring analytics, movie data, and call-volume trends.
             </p>
+
         </div>
+
     </section>
 
+    <!-- Skills Section -->
     <section id="skills">
+
         <h2>Technical Skills</h2>
 
         <div class="skills">
@@ -275,65 +347,52 @@
             <span>JavaScript — learning</span>
             <span>Data Structures & Algorithms</span>
         </div>
+
     </section>
 
+    <!-- Footer -->
     <footer>
         Built with HTML, CSS and JavaScript.
     </footer>
 
+    <!-- Voice Introduction -->
     <script>
-        const introduction =
-            "Hello, welcome to my digital resume. " +
-            "I'm Dasari Nandini, a Product Engineer at Tata Consultancy Services. " +
-            "I work with C sharp and dot NET on a desktop agent for enterprise " +
-            "IT automation. My work includes troubleshooting, debugging, and " +
-            "remediation workflows. I completed my Bachelor of Technology " +
-            "in Computer Science and Engineering. My final year project " +
-            "focused on comparing machine learning technologies for flood " +
-            "prognostication. Thank you for visiting my profile.";
+        function speakIntro() {
 
-function speakIntro() {
-    const intro = "Hi! Welcome to my portfolio. I am a Product Engineer at TCS, working with C sharp and dot net. I enjoy solving problems, building software, and learning new technologies. Let me introduce you to my skills and projects.";
+            const intro =
+                "Hi! Welcome to my portfolio. " +
+                "I am Nandini, a Product Engineer at TCS, " +
+                "working with C sharp and dot net. " +
+                "I enjoy solving problems, building software, " +
+                "and learning new technologies. " +
+                "Let me introduce you to my skills and projects.";
 
-    // Cancel any ongoing speech first
-    window.speechSynthesis.cancel();
+            window.speechSynthesis.cancel();
 
-    const voices = window.speechSynthesis.getVoices();
+            const voices = window.speechSynthesis.getVoices();
 
-    // 1. Create a broader search filter for a female voice
-    const femaleVoice = voices.find(voice => 
-        voice.name.includes("Google UK English Female") || 
-        voice.name.includes("Zira") || // Microsoft Windows female voice
-        voice.name.includes("Samantha") || // Apple Mac/iOS female voice
-        voice.name.includes("Female")
-    );
+            const femaleVoice = voices.find(voice =>
+                voice.name.includes("Google UK English Female") ||
+                voice.name.includes("Zira") ||
+                voice.name.includes("Samantha") ||
+                voice.name.includes("Female")
+            );
 
-    const speech = new SpeechSynthesisUtterance(intro);
+            const speech = new SpeechSynthesisUtterance(intro);
 
-    if (femaleVoice) {
-        speech.voice = femaleVoice;
-        // Match the language of the selected voice to avoid accent conflicts
-        speech.lang = femaleVoice.lang; 
-    } else {
-        // Fallback language if no specific female voice is found yet
-        speech.lang = "en-US";
-    }
+            if (femaleVoice) {
+                speech.voice = femaleVoice;
+                speech.lang = femaleVoice.lang;
+            } else {
+                speech.lang = "en-US";
+            }
 
-    speech.rate = 0.92;
-    speech.pitch = 1.05;
-    speech.volume = 1;
+            speech.rate = 0.92;
+            speech.pitch = 1.05;
+            speech.volume = 1;
 
-    window.speechSynthesis.speak(speech);
-}
-
-// 2. CRITICAL FIX: Tell the browser to pre-load voices when the page opens
-if (typeof window !== "undefined" && window.speechSynthesis) {
-    if (window.speechSynthesis.onvoiceschanged !== undefined) {
-        window.speechSynthesis.onvoiceschanged = () => {
-            window.speechSynthesis.getVoices();
-        };
-    }
-}
+            window.speechSynthesis.speak(speech);
+        }
 
         function stopIntro() {
             window.speechSynthesis.cancel();
@@ -341,6 +400,13 @@ if (typeof window !== "undefined" && window.speechSynthesis) {
             document
                 .getElementById("avatar")
                 .classList.remove("speaking");
+        }
+
+        // Load available voices
+        if ("speechSynthesis" in window) {
+            window.speechSynthesis.onvoiceschanged = () => {
+                window.speechSynthesis.getVoices();
+            };
         }
     </script>
 
