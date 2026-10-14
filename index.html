@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My AI Resume</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #080d1b;
+            color: white;
+        }
+
+        nav {
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #24304c;
+        }
+
+        nav h2 {
+            color: #64eaff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        section {
+            padding: 65px 8%;
+        }
+
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 60px);
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            color: #64eaff;
+        }
+
+        p {
+            color: #aab7d4;
+            line-height: 1.8;
+        }
+
+        button {
+            background: #64eaff;
+            color: #080d1b;
+            border: none;
+            border-radius: 8px;
+            padding: 13px 18px;
+            margin: 8px 8px 0 0;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #b3f6ff;
+        }
+
+        .avatar {
+            width: 230px;
+            height: 230px;
+            min-width: 180px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle,
+                #a4f5ff,
+                #7265ff 45%,
+                #151a46 75%
+            );
+            box-shadow: 0 0 65px #5048d877;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .avatar.speaking {
+            box-shadow: 0 0 90px #64eaff;
+            transform: scale(1.05);
+        }
+
+        .card {
+            background: #10182b;
+            border: 1px solid #263451;
+            border-radius: 15px;
+            padding: 24px;
+            margin: 18px 0;
+        }
+
+        h2 {
+            color: #64eaff;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skills span {
+            background: #1a2741;
+            padding: 10px 14px;
+            border-radius: 8px;
+            color: #c9d8f5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid #24304c;
+            color: #aab7d4;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        @media (max-width: 650px) {
+            nav {
+                padding: 16px 5%;
+            }
+
+            nav a {
+                margin-left: 8px;
+                font-size: 12px;
+            }
+
+            section {
+                padding: 45px 6%;
+            }
+
+            .hero {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .avatar {
+                align-self: center;
+                width: 190px;
+                height: 190px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h2>NANDINI.</h2>
+
+        <div>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+
+        <div class="hero-content">
+            <p class="highlight">SOFTWARE ENGINEER · INDIA</p>
+
+            <h1>
+                Hi, I'm Nandini.<br>
+                I build <span class="highlight">software.</span>
+            </h1>
+
+            <p>
+                I'm a Product Engineer at TCS, working with
+                C#/.NET and enterprise IT automation.
+                Welcome to my interactive digital resume!
+            </p>
+
+            <button onclick="speakIntro()">
+                ▶ Hear my introduction
+            </button>
+
+            <button onclick="stopIntro()">
+                ■ Stop voice
+            </button>
+        </div>
+
+        <div class="avatar" id="avatar"></div>
+
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+
+        <div class="card">
+            <p>
+                I'm a software engineer interested in building
+                reliable applications and solving technical problems.
+                My current role involves working on a C#/.NET desktop
+                agent for enterprise IT automation.
+            </p>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+
+        <div class="card">
+            <h3>Product Engineer — TCS</h3>
+            <p>April 2025 – Present | DWS Product Team</p>
+
+            <p>
+                • Develop and maintain C#/.NET desktop-agent features.<br>
+                • Work on troubleshooting and remediation workflows.<br>
+                • Debug defects and work with APIs, JSON, and PowerShell.<br>
+                • Collaborate with teammates on requirements and fixes.
+            </p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+
+        <div class="card">
+            <h3>Flood Prognostication Using Machine Learning</h3>
+
+            <p>
+                Final-year academic project comparing machine learning
+                approaches for flood prediction using relevant data.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Data Analytics Projects</h3>
+
+            <p>
+                Practice projects involving operational metrics,
+                hiring analytics, movie data, and call-volume trends.
+            </p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Skills</h2>
+
+        <div class="skills">
+            <span>C#</span>
+            <span>.NET</span>
+            <span>Python</span>
+            <span>SQL</span>
+            <span>PowerShell</span>
+            <span>REST APIs</span>
+            <span>JSON</span>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript — learning</span>
+            <span>Data Structures & Algorithms</span>
+        </div>
+    </section>
+
+    <footer>
+        Built with HTML, CSS and JavaScript.
+    </footer>
+
+    <script>
+        const introduction =
+            "Hello, welcome to my digital resume. " +
+            "I'm Dasari Nandini, a Product Engineer at Tata Consultancy Services. " +
+            "I work with C sharp and dot NET on a desktop agent for enterprise " +
+            "IT automation. My work includes troubleshooting, debugging, and " +
+            "remediation workflows. I completed my Bachelor of Technology " +
+            "in Computer Science and Engineering. My final year project " +
+            "focused on comparing machine learning technologies for flood " +
+            "prognostication. Thank you for visiting my profile.";
+
+        
+function speakIntro() {
+    const intro = "Hi! Welcome to my portfolio. I am a Product Engineer at TCS, working with C sharp and dot net. I enjoy solving problems, building software, and learning new technologies. Let me introduce you to my skills and projects.";
+
+    window.speechSynthesis.cancel();
+
+    const voices = window.speechSynthesis.getVoices();
+
+    const femaleVoice = voices.find(
+       voice => voice.name.includes("Google UK English Female")
+    );
+
+    const speech = new SpeechSynthesisUtterance(intro);
+
+    if (femaleVoice) {
+        speech.voice = femaleVoice;
+    }
+
+    speech.lang = "en-US";
+    speech.rate = 0.92;
+    speech.pitch = 1.05;
+    speech.volume = 1;
+
+    window.speechSynthesis.speak(speech);
+}
+
+        function stopIntro() {
+            window.speechSynthesis.cancel();
+
+            document
+                .getElementById("avatar")
+                .classList.remove("speaking");
+        }
+    </script>
+
+</body>
+</html>
